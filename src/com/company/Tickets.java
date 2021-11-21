@@ -1,5 +1,6 @@
+package com.company;
 
-	public class Tickets{
+public class Tickets{
 		static final double regularValue = 3.50;
 		static final double juniorValue = 2.50;
 		static final double seniorValue = 1.00;
@@ -11,6 +12,7 @@
 		private int senior;
 		private int daily;
 		private int weekly;
+		private int totalTicketCount;
 		
 		
 		public Tickets() {
@@ -23,6 +25,7 @@
 			this.senior = a.senior;
 			this.daily = a.daily;
 			this.weekly = a.weekly;
+			totalTicketCount = this.regular + this.junior + this.senior + this.daily + this.weekly;
 		}
 
 		public Tickets(int regular, int junior, int senior, int daily, int weekly) {
@@ -31,7 +34,7 @@
 			this.senior = senior;
 			this.daily = daily;
 			this.weekly = weekly;
-			//ticketsTotal();
+			totalTicketCount = this.regular + this.junior + this.senior + this.daily + this.weekly;
 		}
 		
 		
@@ -87,15 +90,18 @@
 			this.weekly = weekly;
 		}
 
-		public boolean equals(Tickets a) {
+		public int getTotalTicketCount() {
+			return totalTicketCount;
+		}
+
+	public boolean equals(Tickets a) {
 			boolean equal;
-			if (a.ticketsTotal() == this.ticketsTotal()) {
+			if(a.daily == this.daily & a.junior == this.junior & a.regular == this.regular & a.senior == this.senior & a.weekly == this.weekly){
 				equal = true;
-			} else if(a.daily == this.daily && a.junior == this.junior && a.regular == this.regular && a.senior == this.senior && a.weekly == this.weekly) {
-				equal = true;
-			}else {
+			}else{
 				equal = false;
 			}
+
 			return equal;
 			
 		}
@@ -104,15 +110,4 @@
 		public String toString() {
 			return "You have " + regular + "regular tickets, " + junior + "junior tickets, " + senior + "senior tickets, " + daily + "daily tickets, " + weekly + "weekly tickets.";
 		}
-		
-		
-
-
-		
-		
-		
-		
-		
-		
-		
-	}
+}

@@ -1,5 +1,6 @@
+package com.company;
 
-	public class OPUSCard {
+public class OPUSCard {
 	private int month;
 	private int year;
 	private String name;
